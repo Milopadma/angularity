@@ -241,6 +241,10 @@
     align-items: center;
   }
 
+  .test {
+    border: 1px solid red;
+  }
+
   .github-star-badge {
     color: #24292e;
     display: flex;
@@ -359,8 +363,12 @@
 </div>
 
 <div class="content" role="main">
-  <span>{{ title }} app is running!</span>
+  <span class="test" >{{ title }} app is running!</span>
+  <div class="test">test</div>
   <app-header [title]="title"></app-header>
+  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-outline-primary">Primary</button>
+
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
