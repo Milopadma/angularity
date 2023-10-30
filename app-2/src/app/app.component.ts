@@ -4,36 +4,27 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="flex items-center justify-center flex-col">
-      <div class="h-48"></div>
-      <div class="text-4xl font-mono tracking-tighter">hello {{ title }}!</div>
-      <div class="h-8"></div>
-      <div
-        class="flex flex-col items-center justify-center border-2 border-sky-400 rounded-lg px-4 py-2"
-      >
-        <button (click)="change()">change</button>
-      </div>
-      <!-- generic login form -->
-      <div class="h-8"></div>
-      <div
-        class="flex flex-col items-center justify-center border-2 border-sky-400 rounded-lg px-4 py-2"
-      >
-        <form action="submit">
-          <div class="flex flex-col">
-            <label for="username">Username</label>
-            <input type="text" id="username" />
-          </div>
-          <div class="h-4"></div>
-          <div class="flex flex-col">
-            <label for="password">Password</label>
-            <input type="password" id="password" />
-          </div>
-          <div class="h-4"></div>
-          <div class="flex flex-col">
-            <button type="submit" (click)="onSubmit()">Login</button>
-          </div>
-        </form>
-      </div>
-    </div>
+      <nav>
+        <ul>
+          <li>
+            <a
+              routerLink="/"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              >First Component</a
+            >
+          </li>
+          <li>
+            <a
+              routerLink="/test"
+              routerLinkActive="active"
+              ariaCurrentWhenActive="page"
+              >Second Component</a
+            >
+          </li>
+        </ul>
+      </nav>
+      <router-outlet></router-outlet>
   `,
 })
 export class AppComponent implements OnInit {
