@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-test-component',
@@ -12,10 +13,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     </ul>
     <div>actual title pass in: "{{ title }}"</div>
     <button (click)="hello()">press</button>
+    <div>
+      {{ data.fact }}
+    </div>
   `,
 })
 export class TestComponentComponent {
-  constructor() {}
+  constructor(private dataService: DataService) {}
+
   @Input() title: string = 'yes';
   items = ['one', 'two', 'three', this.title];
   // helloevent
@@ -24,4 +29,21 @@ export class TestComponentComponent {
   hello() {
     this.helloevent.emit('Hello from TestComponentComponent');
   }
+
+  data: CatFact = {
+    fact: '',
+    length: 0,
+  };
+
+  ngOnInit() {
+    this.dataService.getData().subscribe((data) => {
+      this.data = data;
+      console.log(this.data);
+    });
+  }
 }
+
+type CatFact = {
+  fact: string;
+  length: number;
+};
