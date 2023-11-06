@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test-component',
@@ -19,4 +19,7 @@ export class TestComponentComponent {
   constructor() {}
   @Input() title: string = 'yes';
   items = ['one', 'two', 'three', this.title];
+  // helloevent
+  @Output() helloevent = new EventEmitter<string>();
+  
 }
