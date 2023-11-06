@@ -32,7 +32,7 @@ import { Component, OnInit } from '@angular/core';
             <button type="submit" (click)="onSubmit()">Login</button>
           </div>
         </form>
-        <app-test-component></app-test-component>
+        <app-test-component [title]="title"> </app-test-component>
       </div>
     </div>
   `,

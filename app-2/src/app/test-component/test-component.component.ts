@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test-component',
@@ -10,10 +10,13 @@ import { Component } from '@angular/core';
     <ul>
       <li *ngFor="let item of items">{{ item }}</li>
     </ul>
+    <div>
+      actual title pass in: "{{title}}"
+    </div>
   `,
 })
 export class TestComponentComponent {
-  items = ['one', 'two', 'three'];
-
   constructor() {}
+  @Input() title: string = 'yes';
+  items = ['one', 'two', 'three', this.title];
 }
