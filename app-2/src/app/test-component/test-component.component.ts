@@ -10,9 +10,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     <ul>
       <li *ngFor="let item of items">{{ item }}</li>
     </ul>
-    <div>
-      actual title pass in: "{{title}}"
-    </div>
+    <div>actual title pass in: "{{ title }}"</div>
+    <button (click)="hello()">press</button>
   `,
 })
 export class TestComponentComponent {
@@ -21,5 +20,8 @@ export class TestComponentComponent {
   items = ['one', 'two', 'three', this.title];
   // helloevent
   @Output() helloevent = new EventEmitter<string>();
-  
+
+  hello() {
+    this.helloevent.emit('Hello from TestComponentComponent');
+  }
 }

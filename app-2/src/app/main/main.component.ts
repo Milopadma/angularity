@@ -32,13 +32,18 @@ import { Component, OnInit } from '@angular/core';
             <button type="submit" (click)="onSubmit()">Login</button>
           </div>
         </form>
-        <app-test-component [title]="title" (helloEvent)="helloevent($event)"></app-test-component>
+        <app-test-component [title]="title" (helloevent)="handleHelloEvent($event)"></app-test-component>
       </div>
     </div>
   `,
 })
 export class MainComponent implements OnInit {
   title = 'app-2';
+
+  handleHelloEvent(event: string) {
+    console.log(event);
+  }
+
   ngOnInit() {
     // set title
     this.title = 'app-2 which one';
